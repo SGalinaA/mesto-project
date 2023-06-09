@@ -1,0 +1,14 @@
+.content {
+  max-width: 880px;
+  padding: 40px 200px 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 42px 19px 0;
+  }
+}

@@ -1,0 +1,16 @@
+.photo-grid__like {
+  margin: 0;
+  padding: 0;
+  width: 22px;
+  height: 19px;
+  border: none;
+  background: url('../../../images/like.svg');
+}
+
+.photo-grid__like:hover {
+  background: url('../../../images/hoverlike.svg');
+}
+
+.photo-grid__like:active {
+  background: url('../../../images/activelike.svg');
+}
