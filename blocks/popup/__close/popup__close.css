@@ -2,19 +2,18 @@
   margin: 0;
   padding: 0;
   border: none;
-  position: relative;
-  left: 102%;
-  bottom: 12%;
   background: url('../../../images/Close.svg');
   width: 32px;
   height: 32px;
+  cursor: url('../../../images/cursor.svg'), pointer;
+  align-self: end;
 }
 
 .popup__close:hover {
-  background: url('../../../images/Closehover.svg');
+  opacity: .6;
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width:880px) {
   .popup__close {
     left: 93%;
     bottom: 11%;
@@ -25,13 +24,12 @@
   }
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width:880px) {
   .popup__close:hover {
     left: 93%;
     bottom: 11%;
     width: 20px;
     height: 20px;
     background-size: contain;
-    background: url('../../../images/CloseIconhover320.svg')
   }
 }

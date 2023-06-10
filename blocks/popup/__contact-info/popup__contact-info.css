@@ -4,3 +4,9 @@
   padding: 0;
   padding-bottom: 48px;
 }
+
+@media screen and (max-width: 880px) {
+  .popup__contact-info {
+    padding-bottom: 45px;
+  }
+}

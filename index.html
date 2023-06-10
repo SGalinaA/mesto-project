@@ -8,83 +8,88 @@
   </head>
   <body class="body">
     <div class="page">
-      <header class="header">
-        <img src="./images/logo.svg" alt="Логотип" class="header__logo">
-        <hr class="header__line">
-      </header>
-      <main class="content">
-        <section class="profile">
-          <div class="profile__item">
-            <img src="./images/avatar.jpg" alt="Фотография профиля" class="profile__avatar">
-            <div class="profile__profile-info">
-              <div class="profile__main-information">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                  <button class="profile__edit-button"></button>
+      <div class="page__content">
+        <header class="header">
+          <img src="./images/logo.svg" alt="Логотип" class="header__logo">
+        </header>
+        <main class="content">
+          <section class="profile">
+            <div class="profile__item">
+              <img src="./images/avatar.jpg" alt="Фотография профиля" class="profile__avatar">
+              <div class="profile__profile-info">
+                <div class="profile__main-information">
+                  <h1 class="profile__name">Жак-Ив Кусто</h1>
+                  <button class="profile__edit-button" type="button"></button>
+                </div>
+                <p class="profile__description">Исследователь океана</p>
               </div>
-              <p class="profile__description">Исследователь океана</p>
+            </div>
+            <button class="profile__add-button" type="button"></button>
+          </section>
+          <section class="photo-grid">
+            <ul class="photo-grid__elements">
+              <li class="photo-grid__item">
+                <img src="./images/Карачаевск.jpg" alt="Сентинский храм, Карачаевск." class="photo-grid__image">
+                <div class="photo-grid__description">
+                  <h2 class="photo-grid__name">Карачаевск</h2>
+                  <button class="photo-grid__like" type="button"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img src="./images/Гора_Эльбрус.jpg" alt="Гора Эльбрус." class="photo-grid__image">
+                <div class="photo-grid__description">
+                  <h2 class="photo-grid__name">Гора Эльбрус</h2>
+                  <button class="photo-grid__like" type="button"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img src="./images/Домбаи.jpg" alt="Белалакая — вершина западной части главного хребта Большого Кавказа." class="photo-grid__image">
+                <div class="photo-grid__description">
+                  <h2 class="photo-grid__name">Домбаи</h2>
+                  <button class="photo-grid__like" type="button"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img src="./images/Гора_Эльбрус.jpg" alt="Гора Эльбрус." class="photo-grid__image">
+                <div class="photo-grid__description">
+                  <h2 class="photo-grid__name">Гора Эльбрус</h2>
+                  <button class="photo-grid__like" type="button"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img src="./images/Домбаи.jpg" alt="Домбаи, гора Белалакая." class="photo-grid__image">
+                <div class="photo-grid__description">
+                  <h2 class="photo-grid__name">Домбаи</h2>
+                  <button class="photo-grid__like" type="button"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img src="./images/Карачаевск.jpg" alt="Сентинский храм, Карачаевск." class="photo-grid__image">
+                <div class="photo-grid__description">
+                  <h2 class="photo-grid__name">Карачаево-Черкессия</h2>
+                  <button class="photo-grid__like" type="button"></button>
+                </div>
+              </li>
+            </ul>
+          </section>
+          <div class="popup popup_opened">
+            <div class="popup__flex">
+              <button class="popup__close" type="button"></button>
+              <form class="popup__container" name="profile-edit">
+                <fieldset class="popup__contact-info">
+                  <legend class="popup__name">Редактировать профиль</legend>
+                  <input type="text" class="popup__main-text popup__username" name="username" placeholder="Жак-Ив Кусто">
+                  <input type="text" class="popup__main-text popup__about-user" name="aboutuser" placeholder="Исследователь океана">
+                </fieldset>
+                <button type="submit" class="popup__button">Сохранить</button>
+              </form>
             </div>
           </div>
-          <button class="profile__add-button"></button>
-        </section>
-        <section class="photo-grid">
-          <ul class="photo-grid__elements">
-            <li class="photo-grid__item">
-              <img src="./images/Карачаевск.jpg" alt="Карачаевск" class="photo-grid__image">
-              <div class="photo-grid__description">
-                <h2 class="photo-grid__name">Карачаевск</h2>
-                <button class="photo-grid__like"></button>
-              </div>
-            </li>
-            <li class="photo-grid__item">
-              <img src="./images/Гора_Эльбрус.jpg" alt="Гора Эльбрус" class="photo-grid__image">
-              <div class="photo-grid__description">
-                <h2 class="photo-grid__name">Гора Эльбрус</h2>
-                <button class="photo-grid__like"></button>
-              </div>
-            </li>
-            <li class="photo-grid__item">
-              <img src="./images/Домбаи.jpg" alt="Домбаи" class="photo-grid__image">
-              <div class="photo-grid__description">
-                <h2 class="photo-grid__name">Домбаи</h2>
-                <button class="photo-grid__like"></button>
-              </div>
-            </li>
-            <li class="photo-grid__item">
-              <img src="./images/Гора_Эльбрус.jpg" alt="Гора Эльбрус" class="photo-grid__image">
-              <div class="photo-grid__description">
-                <h2 class="photo-grid__name">Гора Эльбрус</h2>
-                <button class="photo-grid__like"></button>
-              </div>
-            </li>
-            <li class="photo-grid__item">
-              <img src="./images/Домбаи.jpg" alt="Домбаи" class="photo-grid__image">
-              <div class="photo-grid__description">
-                <h2 class="photo-grid__name">Домбаи</h2>
-                <button class="photo-grid__like"></button>
-              </div>
-            </li>
-            <li class="photo-grid__item">
-              <img src="./images/Карачаевск.jpg" alt="Карачаево-Черкессия" class="photo-grid__image">
-              <div class="photo-grid__description">
-                <h2 class="photo-grid__name">Карачаево-Черкессия</h2>
-                <button class="photo-grid__like"></button>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <section class="popup popup_opened">
-          <form class="popup__container">
-            <h1 class="popup__name">Редактировать профиль</h1>
-            <fieldset class="popup__contact-info">
-              <input type="text" class="popup__username" placeholder="Жак-Ив Кусто">
-              <input type="text" class="popup__about-user" placeholder="Исследователь океана">
-            </fieldset>
-            <button type="submit" class="popup__button">Сохранить</button>
-          </form>
-          <button class="popup__close"></button>
-        </section>
-      </main>
-      <footer class="footer"><h3 class="footer__copy">&copy; 2020 Mesto Russia</h3></footer>
+        </main>
+        <footer class="footer">
+          <p class="footer__copy">&copy; 2020 Mesto Russia</p>
+        </footer>
+      </div>
     </div>
   </body>
 </html>

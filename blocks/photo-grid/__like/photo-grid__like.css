@@ -5,12 +5,10 @@
   height: 19px;
   border: none;
   background: url('../../../images/like.svg');
+  cursor: url('../../../images/cursor.svg'), pointer;
 }
 
 .photo-grid__like:hover {
-  background: url('../../../images/hoverlike.svg');
+  opacity: 0.5;
 }
 
-.photo-grid__like:active {
-  background: url('../../../images/activelike.svg');
-}

@@ -1,0 +1,16 @@
+.popup__flex {
+  display: flex;
+  flex-direction: column;
+  min-width: 470px;
+  min-height: 370px;
+  align-items: left;
+  justify-content: center;
+}
+
+@media screen and (max-width: 880px){
+  .popup__flex {
+    min-width: 282px;
+    min-height: 358px;
+    justify-content: space-between;
+  }
+}

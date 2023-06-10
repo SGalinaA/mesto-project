@@ -6,13 +6,14 @@
   background-repeat: no-repeat;
   background: url('../../../images/Add_Button.svg');
   align-self: center;
+  cursor: url('../../../images/cursor.svg'), pointer;
 }
 
 .profile__add-button:hover {
-  background: url('../../../images/AddButton1.svg');
+  opacity: .6;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1090px) {
   .profile__add-button {
     width: 282px;
     height: 50px;

@@ -7,13 +7,14 @@
   background-repeat: no-repeat;
   background-size: cover;
   background: url('../../../images/Edit_Button.svg');
+  cursor: url('../../../images/cursor.svg'), pointer;
 }
 
 .profile__edit-button:hover {
-  background: url('../../../images/EditButton-----.svg')
+  opacity: .6;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1090px) {
   .profile__edit-button {
     background: url('../../../images/EditButton320.svg');
     height: 18px;
@@ -21,7 +22,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1090px) {
   .profile__edit-button:hover {
     background: url('../../../images/EditButtonhover320.svg');
     height: 18px;

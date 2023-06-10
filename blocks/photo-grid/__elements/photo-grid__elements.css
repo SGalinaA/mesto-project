@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (max-width:1026px) {
+@media screen and (max-width:880px) {
   .photo-grid__elements {
     grid-template-columns: 1fr;
   }

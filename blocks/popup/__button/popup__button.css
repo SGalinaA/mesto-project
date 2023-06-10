@@ -10,13 +10,14 @@
   line-height: 22px;
   text-align: center;
   color: #fff;
+  cursor: url('../../../images/cursor.svg'), pointer;
 }
 
 .popup__button:hover {
   opacity: 0.8;
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width:880px) {
   .popup__button {
     width: 238px;
     height: 46px;
