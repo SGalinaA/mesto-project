@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background: url('../../../images/Edit_Button.svg');
-  cursor: url('../../../images/cursor.svg'), pointer;
+  cursor: pointer;
 }
 
 .profile__edit-button:hover {

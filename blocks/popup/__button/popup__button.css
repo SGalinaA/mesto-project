@@ -10,7 +10,7 @@
   line-height: 22px;
   text-align: center;
   color: #fff;
-  cursor: url('../../../images/cursor.svg'), pointer;
+  cursor: pointer;
 }
 
 .popup__button:hover {

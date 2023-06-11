@@ -5,7 +5,7 @@
   height: 19px;
   border: none;
   background: url('../../../images/like.svg');
-  cursor: url('../../../images/cursor.svg'), pointer;
+  cursor: pointer;
 }
 
 .photo-grid__like:hover {

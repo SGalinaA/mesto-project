@@ -4,12 +4,19 @@
   font-size: 24px;
   line-height: 29px;
   color: #000;
-
+  background-color: #fff;
+  max-width: 394px;
+  border-radius: 10px 10px 0 0;
+  padding-left: 36px;
+  padding-top: 34px;
 }
 
 @media screen and (max-width:880px) {
   .popup__name {
     font-size: 18px;
     line-height: 22px;
+    padding-left: 22px;
+    padding-top: 25px;
+    min-height: 22px;
   }
 }

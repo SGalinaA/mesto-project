@@ -75,11 +75,13 @@
           <div class="popup popup_opened">
             <div class="popup__flex">
               <button class="popup__close" type="button"></button>
+              <div class="popup__name-container">
+                <h2 class="popup__name">Редактировать профиль</h2>
+              </div>
               <form class="popup__container" name="profile-edit">
                 <fieldset class="popup__contact-info">
-                  <legend class="popup__name">Редактировать профиль</legend>
-                  <input type="text" class="popup__main-text popup__username" name="username" placeholder="Жак-Ив Кусто">
-                  <input type="text" class="popup__main-text popup__about-user" name="aboutuser" placeholder="Исследователь океана">
+                  <input type="text" class="popup__main-text" name="username" placeholder="Жак-Ив Кусто">
+                  <input type="text" class="popup__main-text" name="aboutuser" placeholder="Исследователь океана">
                 </fieldset>
                 <button type="submit" class="popup__button">Сохранить</button>
               </form>

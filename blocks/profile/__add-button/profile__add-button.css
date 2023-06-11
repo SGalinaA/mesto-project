@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   background: url('../../../images/Add_Button.svg');
   align-self: center;
-  cursor: url('../../../images/cursor.svg'), pointer;
+  cursor: pointer;
 }
 
 .profile__add-button:hover {

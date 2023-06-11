@@ -5,7 +5,7 @@
   background: url('../../../images/Close.svg');
   width: 32px;
   height: 32px;
-  cursor: url('../../../images/cursor.svg'), pointer;
+  cursor: pointer;
   align-self: end;
 }
 
@@ -21,15 +21,5 @@
     height: 20px;
     background-size: contain;
     background: url('../../../images/CloseIcon320.svg')
-  }
-}
-
-@media screen and (max-width:880px) {
-  .popup__close:hover {
-    left: 93%;
-    bottom: 11%;
-    width: 20px;
-    height: 20px;
-    background-size: contain;
   }
 }
