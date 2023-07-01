@@ -1,0 +1,23 @@
+.popup-photo__close {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: url('../../../images/Close.svg');
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  align-self: end;
+}
+.popup-photo__close:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 700px) {
+  .popup-photo__close {
+
+    width: 20px;
+    height: 20px;
+    background: url('../../../images/CloseIcon320.svg')
+  }
+}

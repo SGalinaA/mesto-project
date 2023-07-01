@@ -1,0 +1,8 @@
+.popup-photo__img {
+  display:flex;
+  max-width:75vw;
+  max-height: 75vh;
+  overflow: hidden;
+}
+
+

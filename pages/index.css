@@ -13,15 +13,23 @@
 @import url(../blocks/profile/__main-information/profile__main-information.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/close-animation/close-animation.css);
 @import url(../blocks/profile/__description/profile__description.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/photo-grid/photo-grid.css);
 @import url(../blocks/photo-grid/__elements/photo-grid__elements.css);
 @import url(../blocks/photo-grid/__item/photo-grid__item.css);
+@import url(../blocks/photo-grid/__delete/photo-grid__delete.css);
 @import url(../blocks/photo-grid/__image/photo-grid__image.css);
 @import url(../blocks/photo-grid/__description/photo-grid__description.css);
 @import url(../blocks/photo-grid/__name/photo-grid__name.css);
 @import url(../blocks/photo-grid/__like/photo-grid__like.css);
+@import url(../blocks/popup-photo/popup-photo.css);
+@import url(../blocks/popup-photo/__container/popup-photo__container.css);
+@import url(../blocks/popup-photo/__close/popup-photo__close.css);
+@import url(../blocks/popup-photo/__figure/popup-photo__figure.css);
+@import url(../blocks/popup-photo/__img/popup-photo__img.css);
+@import url(../blocks/popup-photo/__caption/popup-photo__caption.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__flex/popup__flex.css);
@@ -33,7 +41,7 @@
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copy/footer__copy.css);
-
+//* { outline: 1px solid yellow; }
 
 
 

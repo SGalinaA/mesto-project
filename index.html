@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pages/index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pages/index.css" />
     <title>Mesto</title>
   </head>
   <body class="body">
     <div class="page">
       <div class="page__content">
         <header class="header">
-          <img src="./images/logo.svg" alt="Логотип" class="header__logo">
+          <img src="./images/logo.svg" alt="Логотип" class="header__logo" />
         </header>
         <main class="content">
           <section class="profile">
             <div class="profile__item">
-              <img src="./images/avatar.jpg" alt="Фотография профиля" class="profile__avatar">
+              <img
+                src="./images/avatar.jpg"
+                alt="Фотография профиля"
+                class="profile__avatar"
+              />
               <div class="profile__profile-info">
                 <div class="profile__main-information">
                   <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -27,50 +31,7 @@
             <button class="profile__add-button" type="button"></button>
           </section>
           <section class="photo-grid">
-            <ul class="photo-grid__elements">
-              <li class="photo-grid__item">
-                <img src="./images/Карачаевск.jpg" alt="Сентинский храм, Карачаевск." class="photo-grid__image">
-                <div class="photo-grid__description">
-                  <h2 class="photo-grid__name">Карачаевск</h2>
-                  <button class="photo-grid__like" type="button"></button>
-                </div>
-              </li>
-              <li class="photo-grid__item">
-                <img src="./images/Гора_Эльбрус.jpg" alt="Гора Эльбрус." class="photo-grid__image">
-                <div class="photo-grid__description">
-                  <h2 class="photo-grid__name">Гора Эльбрус</h2>
-                  <button class="photo-grid__like" type="button"></button>
-                </div>
-              </li>
-              <li class="photo-grid__item">
-                <img src="./images/Домбаи.jpg" alt="Белалакая — вершина западной части главного хребта Большого Кавказа." class="photo-grid__image">
-                <div class="photo-grid__description">
-                  <h2 class="photo-grid__name">Домбаи</h2>
-                  <button class="photo-grid__like" type="button"></button>
-                </div>
-              </li>
-              <li class="photo-grid__item">
-                <img src="./images/Гора_Эльбрус.jpg" alt="Гора Эльбрус." class="photo-grid__image">
-                <div class="photo-grid__description">
-                  <h2 class="photo-grid__name">Гора Эльбрус</h2>
-                  <button class="photo-grid__like" type="button"></button>
-                </div>
-              </li>
-              <li class="photo-grid__item">
-                <img src="./images/Домбаи.jpg" alt="Домбаи, гора Белалакая." class="photo-grid__image">
-                <div class="photo-grid__description">
-                  <h2 class="photo-grid__name">Домбаи</h2>
-                  <button class="photo-grid__like" type="button"></button>
-                </div>
-              </li>
-              <li class="photo-grid__item">
-                <img src="./images/Карачаевск.jpg" alt="Сентинский храм, Карачаевск." class="photo-grid__image">
-                <div class="photo-grid__description">
-                  <h2 class="photo-grid__name">Карачаево-Черкессия</h2>
-                  <button class="photo-grid__like" type="button"></button>
-                </div>
-              </li>
-            </ul>
+            <ul class="photo-grid__elements"></ul>
           </section>
           <div class="popup popup_opened">
             <div class="popup__flex">
@@ -78,11 +39,50 @@
               <h2 class="popup__name">Редактировать профиль</h2>
               <form class="popup__container" name="profile-edit">
                 <fieldset class="popup__contact-info">
-                  <input type="text" class="popup__main-text" name="username" placeholder="Жак-Ив Кусто">
-                  <input type="text" class="popup__main-text" name="aboutuser" placeholder="Исследователь океана">
+                  <input type="text" class="popup__main-text" name="username" />
+                  <input
+                    type="text"
+                    class="popup__main-text"
+                    name="aboutuser"
+                  />
                 </fieldset>
                 <button type="submit" class="popup__button">Сохранить</button>
               </form>
+            </div>
+          </div>
+          <div class="popup popup-add_opened">
+            <div class="popup__flex">
+              <button
+                class="popup__close popup__add-close"
+                type="button"
+              ></button>
+              <h2 class="popup__name">Новое место</h2>
+              <form class="popup__container" name="photo-add">
+                <fieldset class="popup__contact-info">
+                  <input
+                    type="text"
+                    class="popup__main-text"
+                    name="phototitle"
+                    placeholder="Название"
+                  />
+                  <input
+                    type="text"
+                    class="popup__main-text"
+                    name="photolink"
+                    placeholder="Сссылка на картинку"
+                  />
+                </fieldset>
+                <button type="submit" class="popup__button">Создать</button>
+              </form>
+            </div>
+          </div>
+          <div class="popup-photo">
+            <div class="popup-photo__container">
+              <button class="popup-photo__close" type="button"></button>
+              <figure class="popup-photo__figure">
+                <img class="popup-photo__img" />
+                <figcaption class="popup-photo__caption"></figcaption>
+              </figure>
             </div>
           </div>
         </main>
@@ -91,5 +91,18 @@
         </footer>
       </div>
     </div>
+    <template class="cardtemplate">
+      <li class="photo-grid__item">
+        <div>
+          <button class="photo-grid__delete" type="button"></button>
+          <img class="photo-grid__image" />
+        </div>
+        <div class="photo-grid__description">
+          <h2 class="photo-grid__name"></h2>
+          <button class="photo-grid__like" type="button"></button>
+        </div>
+      </li>
+    </template>
+    <script src="./script.js"></script>
   </body>
 </html>

@@ -1,10 +1,13 @@
 .photo-grid__item {
   display: grid;
   grid-template-rows: 282px 79px;
+  justify-self: center;
+  min-width:282px;
 }
 
-@media screen and (max-width:1280px) {
+@media screen and (max-width:1279px) {
   .photo-grid__item {
-    justify-content: center;
+    max-width: 282px;
   }
 }
+
