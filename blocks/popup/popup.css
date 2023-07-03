@@ -1,5 +1,5 @@
 .popup {
-  display: none;
+  display:flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,14 +9,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  animation: opas .5s;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s ease-in;
 }
 
-@keyframes opas {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
