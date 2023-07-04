@@ -6,9 +6,8 @@
   width: 32px;
   height: 32px;
   cursor: pointer;
-  position: absolute;
   align-self: end;
-  top: 26%;
+
 }
 
 .popup__close:hover {

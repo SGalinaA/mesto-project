@@ -52,8 +52,8 @@ function openPopup(popup) {
 
 editButton.addEventListener('click', function(){
   openPopup(profilePopup);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileDescription.textContent;
+  nameInput.placeholder = profileName.textContent;
+  jobInput.placeholder = profileDescription.textContent;
 });
 
 function closePopup(popup) {
@@ -72,6 +72,8 @@ function editProfile(evt) {
   profileName.textContent = nameInputValue;
   profileDescription.textContent = jobInputValue;
   closePopup(profilePopup);
+  nameInput.value = '';
+  jobInput.value = '';
 }
 
 profileForm.addEventListener('submit',editProfile);
@@ -130,6 +132,8 @@ function addCard(evt) {
   const cardElement = createCard(initialCards[0]);
     cardList.prepend(cardElement);
     closePopup(popupAddCard);
+    photoTitle.value = '';
+    photoLink.value = '';
   };
 
 cardForm.addEventListener('submit', addCard);
