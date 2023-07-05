@@ -10,7 +10,6 @@ const profileDescription = content.querySelector('.profile__description');
 const closeButtons = document.querySelectorAll('.popup__close');
 const cardList = content.querySelector('.photo-grid__elements');
 const cardTemplate = document.querySelector('.cardtemplate').content;
-const deleteButton = document.querySelectorAll('.photo-grid__delete');
 const photoContainer = content.querySelector('.popup-photo');
 const photoImage = document.querySelector('.popup-photo__img');
 const popupPhotoCaption = content.querySelector('.popup-photo__caption');
@@ -72,8 +71,7 @@ function editProfile(evt) {
   profileName.textContent = nameInputValue;
   profileDescription.textContent = jobInputValue;
   closePopup(profilePopup);
-  nameInput.value = '';
-  jobInput.value = '';
+  evt.target.reset();
 }
 
 profileForm.addEventListener('submit',editProfile);
@@ -92,7 +90,7 @@ function createCard(item) {
   cardElement.querySelector('.photo-grid__delete').addEventListener('click', function (evt) {
     cardElement.remove();
   });
-  cardElement.querySelector('.photo-grid__image').addEventListener('click', function (evt) {
+  cardImage.addEventListener('click', function (evt) {
     openPopup(photoContainer);
     const eventTarget = evt.target;
     fillPhotoPopup(eventTarget);
@@ -123,21 +121,14 @@ function addCard(evt) {
   evt.preventDefault();
   const photoTitleValue = photoTitle.value;
   const photoLinkValue = photoLink.value;
-  initialCards.unshift({
-    name: '',
-    link: ''
-  });
-  initialCards[0].name = photoTitleValue;
-  initialCards[0].link = photoLinkValue;
-  const cardElement = createCard(initialCards[0]);
-    cardList.prepend(cardElement);
-    closePopup(popupAddCard);
-    photoTitle.value = '';
-    photoLink.value = '';
+  const item = {
+    name: photoTitleValue,
+    link: photoLinkValue
+  }
+  const cardElement = createCard(item);
+  cardList.prepend(cardElement);
+  closePopup(popupAddCard);
+  evt.target.reset();
   };
 
 cardForm.addEventListener('submit', addCard);
-
-
-
-
