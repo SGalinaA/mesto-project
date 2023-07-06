@@ -51,8 +51,8 @@ function openPopup(popup) {
 
 editButton.addEventListener('click', function(){
   openPopup(profilePopup);
-  nameInput.placeholder = profileName.textContent;
-  jobInput.placeholder = profileDescription.textContent;
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileDescription.textContent;
 });
 
 function closePopup(popup) {
@@ -98,10 +98,10 @@ function createCard(item) {
 return cardElement
 }
 
-function fillPhotoPopup(a){
-  const photoLink = a.src;
+function fillPhotoPopup(image){
+  const photoLink = image.src;
   photoImage.src = photoLink;
-  const photoCaption = a.alt;
+  const photoCaption = image.alt;
   popupPhotoCaption.textContent = photoCaption;
   photoImage.alt = photoCaption;
 
