@@ -4,7 +4,7 @@
   height: 50px;
   width: 150px;
   background-repeat: no-repeat;
-  background: url('../../../images/Add_Button.svg');
+  background: url('../../../src/images/Add_Button.svg');
   align-self: center;
   cursor: pointer;
 }
@@ -17,7 +17,7 @@
   .profile__add-button {
     width: 282px;
     height: 50px;
-    background: url('../../../images/AddButton320.svg');
+    background: url('../../../src/images/AddButton320.svg');
   }
 }
 
@@ -25,6 +25,6 @@
   .profile__add-button:hover {
     width: 282px;
     height: 50px;
-    background: url('../../../images/AddButton320hover.svg');
+    background: url('../../../src/images/AddButton320hover.svg');
   }
 }

@@ -41,8 +41,9 @@
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copy/footer__copy.css);
-//* { outline: 1px solid yellow; }
-
+@import url(../blocks/popup/__main-text/_error/popup__main-text_error.css);
+@import url(../blocks/popup/__error-description/popup__error-description.css);
+@import url(../blocks/popup/__button/popup__button_inactive.css);
 
 
 

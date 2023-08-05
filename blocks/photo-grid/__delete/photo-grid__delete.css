@@ -7,7 +7,7 @@
   width: 18px;
   height: 19px;
   border: none;
-  background: url('../../../images/Trash.svg');
+  background: url('../../../src/images/Trash.svg');
   cursor: pointer;
 }
 

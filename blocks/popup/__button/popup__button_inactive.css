@@ -1,0 +1,10 @@
+.popup__button_inactive {
+font-family: Inter;
+font-size: 18px;
+font-weight: 400;
+color: #B8B8B8;
+background-color:  #fff;
+pointer-events: none;
+border-radius: 2px;
+border: 1px solid #B8B8B8;;
+}

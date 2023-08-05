@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   border: none;
-  background: url('../../../images/Close.svg');
+  background: url('../../../src/images/Close.svg');
   width: 32px;
   height: 32px;
   cursor: pointer;
@@ -18,6 +18,6 @@
 
     width: 20px;
     height: 20px;
-    background: url('../../../images/CloseIcon320.svg')
+    background: url('../../../src/images/CloseIcon320.svg')
   }
 }

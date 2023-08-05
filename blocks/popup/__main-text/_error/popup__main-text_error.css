@@ -1,0 +1,7 @@
+.popup__main-text_error {
+  font-size:12px;
+  font-family: Inter;
+  color:red;
+  font-weight: 400;
+  border-bottom-color: red;
+}

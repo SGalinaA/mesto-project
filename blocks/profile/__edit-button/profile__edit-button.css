@@ -6,7 +6,7 @@
   width: 24px;
   background-repeat: no-repeat;
   background-size: cover;
-  background: url('../../../images/Edit_Button.svg');
+  background: url('../../../src/images/Edit_Button.svg');
   cursor: pointer;
 }
 
@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 1090px) {
   .profile__edit-button {
-    background: url('../../../images/EditButton320.svg');
+    background: url('../../../src/images/EditButton320.svg');
     height: 18px;
     width: 18px;
   }
@@ -24,7 +24,7 @@
 
 @media screen and (max-width: 1090px) {
   .profile__edit-button:hover {
-    background: url('../../../images/EditButtonhover320.svg');
+    background: url('../../../src/images/EditButtonhover320.svg');
     height: 18px;
     width: 18px;
   }
