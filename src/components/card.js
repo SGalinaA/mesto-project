@@ -1,10 +1,11 @@
 export const cardForm = document.forms["card-form"];
-import { openPopup, closePopup } from './utils.js';
-import { fillPhotoPopup, photoContainer, popupAddCard } from './modal.js';
+import { openPopup, closePopup } from './modal';
+import { fillPhotoPopup, photoContainer, popupAddCard } from '../index';
 const cardList = document.querySelector('.photo-grid__elements');
 const cardTemplate = document.querySelector('.cardtemplate').content;
 const photoTitle = cardForm.querySelector('.popup__main-text');
 const photoLink = cardForm.querySelector('input[name="photolink"]');
+const popupAddCardButton = cardForm.querySelector('.popup__button');
 const initialCards = [
   {
     name: 'Архыз',
@@ -70,5 +71,8 @@ export function addCard(evt) {
   const cardElement = createCard(item);
   cardList.prepend(cardElement);
   closePopup(popupAddCard);
+  popupAddCardButton.classList.add('popup__button_inactive');
   evt.target.reset();
 };
+
+cardForm.addEventListener('submit', addCard);

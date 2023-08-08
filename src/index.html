@@ -9,13 +9,13 @@
     <div class="page">
       <div class="page__content">
         <header class="header">
-          <img src="C:\Users\Галина\dev\mesto-project\src\images\logo.svg" alt="Логотип" class="header__logo" />
+          <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="header__logo" />
         </header>
         <main class="content">
           <section class="profile">
             <div class="profile__item">
               <img
-                src="C:\Users\Галина\dev\mesto-project\src\images\avatar.jpg"
+                src="<%=require('./images/avatar.jpg')%>"
                 alt="Фотография профиля"
                 class="profile__avatar"
               />
@@ -39,9 +39,9 @@
               <form class="popup__container popup__profile-form" name="profile-form" novalidate>
                 <fieldset class="popup__contact-info">
                   <input type="text" class="popup__main-text " id="name-input" name="username" required minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-я\- ]+$" data-error-message="Поле может содержать только латинские буквы, кириллические буквы, знаки дефиса и пробелы"/>
-                  <span class="name-input-error"></span>
+                  <span class="popup__first-field name-input-error"></span>
                   <input type="text" class="popup__main-text" id="aboutuser" name="aboutuser" required minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-я\- ]+$" data-error-message="Поле может содержать только латинские буквы, кириллические буквы, знаки дефиса и пробелы"/>
-                  <span class="aboutuser-error"></span>
+                  <span class="popup__second-field aboutuser-error"></span>
                 </fieldset>
                 <button type="submit" class="popup__button">Сохранить</button>
               </form>
@@ -63,7 +63,7 @@
                     name="phototitle"
                     placeholder="Название"
                     required minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-я\- ]+$" data-error-message="Поле может содержать только латинские буквы, кириллические буквы, знаки дефиса и пробелы"/>
-                  <span class="header-input-error"></span>
+                  <span class="popup__first-field header-input-error"></span>
                   <input
                     type="url"
                     class="popup__main-text"
@@ -71,10 +71,10 @@
                     name="photolink"
                     placeholder="Сссылка на картинку"
                     required
-                    pattern="https?:\/\/[0-9a-z]"
+                    pattern="https?:\/\/[0-9a-z\W]{1,}"
                     data-error-message="Введите адрес сайта"
                   />
-                  <span class="url-input-error"></span>
+                  <span class="popup__second-field url-input-error"></span>
                 </fieldset>
                 <button type="submit" class="popup__button">Создать</button>
               </form>

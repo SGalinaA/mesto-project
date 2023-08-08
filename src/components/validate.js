@@ -1,86 +1,68 @@
-import { cardForm, addCard } from "./card";
-import {profileForm, editProfile} from './modal';
-
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, settings) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  console.log(errorElement);
-  inputElement.classList.add('popup__main-text_error');
+  inputElement.classList.add(settings.inputErrorClass);
+  console.log(settings.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('popup__error-description');
+  errorElement.classList.add(settings.errorClass);
 };
 
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, settings) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove("popup__main-text_error");
+  inputElement.classList.remove(settings.inputErrorClass);
   errorElement.textContent = '';
-  errorElement.classList.remove('popup__error-description');
+  errorElement.classList.remove(settings.errorClass);
 };
 
-const validationRule = /[^$]/;
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, settings) => {
   if (inputElement.validity.patternMismatch) {
     inputElement.setCustomValidity(inputElement.dataset.errorMessage);
-  }
-  else {
-    inputElement.setCustomValidity("");
-  };
+} else {
+inputElement.setCustomValidity("");
+}
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, settings);
   } else {
-    hideInputError(formElement, inputElement);
-  };
-  if (validationRule.test(inputElement.value)) {
-    console.log('yes')
-  } else {
-    myError(formElement, inputElement);
+    hideInputError(formElement, inputElement, settings);
   }
 };
 
-function myError(formElement, inputElement) {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove("form__input_type_error");
-  errorElement.textContent = 'Вы пропустили это поле';
-};
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.popup__main-text'));
-  const buttonElement = formElement.querySelector('.popup__button');
-  toggleButtonState(inputList, buttonElement);
+const setEventListeners = (formElement, settings) => {
+  const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+  const buttonElement = formElement.querySelector(settings.submitButtonSelector);
+   toggleButtonState(inputList, buttonElement, settings);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, settings);
+      toggleButtonState(inputList, buttonElement, settings);
     });
   });
 };
 
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll('.popup__container'));
+const enableValidation = (settings) => {
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
-    setEventListeners(formElement);
-  });
+  setEventListeners(formElement, settings);
+});
 };
 
-enableValidation();
-
-function hasInvalidInput(inputList) {
+enableValidation({
+  formSelector: '.popup__container',
+  inputSelector: '.popup__main-text',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_inactive',
+  inputErrorClass: 'popup__main-text_error',
+  errorClass: 'popup__error-description',
+});
+function hasInvalidInput (inputList) {
   return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-};
-
-function toggleButtonState(inputList, buttonElement) {
+  return !inputElement.validity.valid;
+});
+}
+function toggleButtonState (inputList, buttonElement, settings) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__button_inactive');
-    cardForm.removeEventListener('submit', addCard);
-    profileForm.removeEventListener('submit', editProfile);
-  } else {
-    buttonElement.classList.remove('popup__button_inactive');
-    cardForm.addEventListener('submit', addCard);
-    profileForm.addEventListener('submit', editProfile);
-
-  }
+  buttonElement.classList.add(settings.inactiveButtonClass);
+} else {
+  buttonElement.classList.remove(settings.inactiveButtonClass);
+}
 };
+
