@@ -4,13 +4,15 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
   console.log(settings.inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(settings.errorClass);
-};
+ }
+
 
 const hideInputError = (formElement, inputElement, settings) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(settings.inputErrorClass);
   errorElement.textContent = '';
   errorElement.classList.remove(settings.errorClass);
+
 };
 
 const checkInputValidity = (formElement, inputElement, settings) => {
@@ -21,6 +23,7 @@ inputElement.setCustomValidity("");
 }
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage, settings);
+    blockEnter(formElement, inputElement, settings);
   } else {
     hideInputError(formElement, inputElement, settings);
   }
@@ -64,5 +67,14 @@ function toggleButtonState (inputList, buttonElement, settings) {
 } else {
   buttonElement.classList.remove(settings.inactiveButtonClass);
 }
-};
-
+}
+function blockEnter(formElement, inputElement, settings){
+  const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+  inputList.forEach(inputElement => {
+    inputElement.addEventListener('keydown', function (evt) {
+      if ((evt.key === 'Enter') && (!inputElement.validity.valid)) {
+        evt.preventDefault();
+      }
+    })
+  })
+}

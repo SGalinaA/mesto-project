@@ -47,9 +47,4 @@ export function fillPhotoPopup(image) {
 
 profileForm.addEventListener('submit',editProfile);
 
-document.querySelectorAll('.popup__main-text').forEach(item => {
-  item.addEventListener('keydown', function (evt) {
-    if (evt.key === 'Enter') {
-      evt.preventDefault();
-    }
-  })})
+
