@@ -1,12 +1,8 @@
-export const cardForm = document.forms["card-form"];
-import { openPopup, closePopup } from './modal';
-import { fillPhotoPopup, photoContainer, popupAddCard } from '../index';
-const cardList = document.querySelector('.photo-grid__elements');
+import { openPopup } from './modal.js';
+import { fillPhotoPopup, photoContainer } from '../index.js';
+export const cardList = document.querySelector('.photo-grid__elements');
 const cardTemplate = document.querySelector('.cardtemplate').content;
-const photoTitle = cardForm.querySelector('.popup__main-text');
-const photoLink = cardForm.querySelector('input[name="photolink"]');
-const popupAddCardButton = cardForm.querySelector('.popup__button');
-const initialCards = [
+export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -33,13 +29,7 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach(function (element) {
-  const cardElement = createCard(element)
-  cardList.append(cardElement);
-
-});
-
-function createCard(item) {
+export function createCard(item) {
   const cardElement = cardTemplate.querySelector('.photo-grid__item').cloneNode(true);
   const cardImage = cardElement.querySelector('.photo-grid__image');
   const cardName = cardElement.querySelector('.photo-grid__name');
@@ -60,19 +50,4 @@ function createCard(item) {
   return cardElement
 }
 
-export function addCard(evt) {
-  evt.preventDefault();
-  const photoTitleValue = photoTitle.value;
-  const photoLinkValue = photoLink.value;
-  const item = {
-    name: photoTitleValue,
-    link: photoLinkValue
-  }
-  const cardElement = createCard(item);
-  cardList.prepend(cardElement);
-  closePopup(popupAddCard);
-  popupAddCardButton.classList.add('popup__button_inactive');
-  evt.target.reset();
-};
 
-cardForm.addEventListener('submit', addCard);

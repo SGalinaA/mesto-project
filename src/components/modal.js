@@ -1,3 +1,5 @@
+const closeButtons = document.querySelectorAll('.popup__close');
+
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEsc);
@@ -17,10 +19,13 @@ function closeByEsc(evt) {
 
 document.querySelectorAll('.popup').forEach(item => {
   item.addEventListener('click', function (evt) {
-    const openedPopup = document.querySelector('.popup_opened');
-    if ((evt.target.classList.contains('profile-popup')) || (evt.target.classList.contains('popup-add')) || (evt.target.classList.contains(('popup-photo')))) {
-      closePopup(openedPopup);
+    if (evt.target.classList.contains('popup')) {
+      closePopup(evt.target);
     }
   })
 });
 
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});

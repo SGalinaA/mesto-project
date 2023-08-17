@@ -1,8 +1,6 @@
-import './index.css';
-import './components/utils.js';
-import './components/validate.js';
-import './components/card.js';
-import { openPopup, closePopup } from './components/modal';
+import { openPopup, closePopup } from './components/modal.js';
+import { createCard, cardList, initialCards } from './components/card.js';
+import { enableValidation } from './components/validate.js';
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
@@ -16,6 +14,10 @@ export const popupAddCard = document.querySelector('.popup-add');
 export const photoContainer = document.querySelector('.popup-photo');
 const photoImage = document.querySelector('.popup-photo__img');
 const popupPhotoCaption = document.querySelector('.popup-photo__caption');
+const cardForm = document.forms["card-form"];
+const photoTitle = cardForm.querySelector('.popup__main-text');
+const photoLink = cardForm.querySelector('input[name="photolink"]');
+const popupAddCardButton = cardForm.querySelector('.popup__button');
 
 editButton.addEventListener('click', function () {
   openPopup(profilePopup);
@@ -37,6 +39,29 @@ addButton.addEventListener('click', function () {
   openPopup(popupAddCard);
 });
 
+initialCards.forEach(function (element) {
+  const cardElement = createCard(element)
+  cardList.append(cardElement);
+
+});
+
+export function addCard(evt) {
+  evt.preventDefault();
+  const photoTitleValue = photoTitle.value;
+  const photoLinkValue = photoLink.value;
+  const item = {
+    name: photoTitleValue,
+    link: photoLinkValue
+  }
+  const cardElement = createCard(item);
+  cardList.prepend(cardElement);
+  closePopup(popupAddCard);
+  popupAddCardButton.classList.add('popup__button_inactive');
+  evt.target.reset();
+};
+
+cardForm.addEventListener('submit', addCard);
+
 export function fillPhotoPopup(image) {
   const photoLink = image.src;
   photoImage.src = photoLink;
@@ -45,6 +70,14 @@ export function fillPhotoPopup(image) {
   photoImage.alt = photoCaption;
 }
 
-profileForm.addEventListener('submit',editProfile);
+profileForm.addEventListener('submit', editProfile);
 
+enableValidation({
+  formSelector: '.popup__container',
+  inputSelector: '.popup__main-text',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_inactive',
+  inputErrorClass: 'popup__main-text_error',
+  errorClass: 'popup__error-description',
+});
 

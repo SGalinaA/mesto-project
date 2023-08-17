@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css">
     <title>Mesto</title>
   </head>
   <body class="body">
     <div class="page">
       <div class="page__content">
         <header class="header">
-          <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="header__logo" />
+          <img src="./images/logo.svg" alt="Логотип" class="header__logo" />
         </header>
         <main class="content">
           <section class="profile">
             <div class="profile__item">
               <img
-                src="<%=require('./images/avatar.jpg')%>"
+                src="./images/avatar.jpg"
                 alt="Фотография профиля"
                 class="profile__avatar"
               />
@@ -32,7 +33,7 @@
           <section class="photo-grid">
             <ul class="photo-grid__elements"></ul>
           </section>
-          <div class="popup profile-popup">
+          <div class="popup profile-popup popup__background">
             <div class="popup__flex">
               <button class="popup__close" type="button"></button>
               <h2 class="popup__name">Редактировать профиль</h2>
@@ -47,7 +48,7 @@
               </form>
             </div>
           </div>
-          <div class="popup popup-add">
+          <div class="popup popup-add popup__background">
             <div class="popup__flex">
               <button
                 class="popup__close popup__add-close"
@@ -108,4 +109,5 @@
       </li>
     </template>
   </body>
+  <script  type="module" src="./index.js"></script>
 </html>
