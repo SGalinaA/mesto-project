@@ -3,20 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css">
     <title>Mesto</title>
   </head>
   <body class="body">
     <div class="page">
       <div class="page__content">
         <header class="header">
-          <img src="./images/logo.svg" alt="Логотип" class="header__logo" />
+          <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="header__logo" />
         </header>
         <main class="content">
           <section class="profile">
             <div class="profile__item">
               <img
-                src="./images/avatar.jpg"
+              src="<%=require('./images/avatar.jpg')%>"
                 alt="Фотография профиля"
                 class="profile__avatar"
               />
@@ -109,5 +108,4 @@
       </li>
     </template>
   </body>
-  <script  type="module" src="./index.js"></script>
 </html>

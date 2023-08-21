@@ -1,3 +1,4 @@
+import './index.css';
 import { openPopup, closePopup } from './components/modal.js';
 import { createCard, cardList, initialCards } from './components/card.js';
 import { enableValidation } from './components/validate.js';

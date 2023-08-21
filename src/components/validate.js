@@ -22,7 +22,6 @@ const checkInputValidity = (formElement, inputElement, settings) => {
   }
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage, settings);
-    blockEnter(formElement, inputElement, settings);
   } else {
     hideInputError(formElement, inputElement, settings);
   }
@@ -57,6 +56,7 @@ function toggleButtonState(inputList, buttonElement, settings) {
     buttonElement.setAttribute("disabled", "disabled");
     buttonElement.classList.add(settings.inactiveButtonClass);
   } else {
+    buttonElement.removeAttribute("disabled", "disabled");
     buttonElement.classList.remove(settings.inactiveButtonClass);
   }
 }
