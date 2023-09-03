@@ -1,24 +1,31 @@
 import './index.css';
-import { openPopup, closePopup } from './components/modal.js';
-import { createCard, cardList, initialCards } from './components/card.js';
+import { createCard, cardList, } from './components/card.js';
+import { openPopup } from './components/modal.js';
 import { enableValidation } from './components/validate.js';
+import {getUserInformation, changeMainInformation, postCard, patchUpdateAvatar} from './components/api';
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 export const profilePopup = document.querySelector('.profile-popup');
 export const profileForm = document.forms["profile-form"];
 export const nameInput = profileForm.querySelector('.popup__main-text');
-const jobInput = profileForm.querySelector('input[name="aboutuser"]');
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
+export const jobInput = profileForm.querySelector('input[name="aboutuser"]');
+export const profileName = document.querySelector('.profile__name');
+export const profileDescription = document.querySelector('.profile__description');
 export const popupAddCard = document.querySelector('.popup-add');
 export const photoContainer = document.querySelector('.popup-photo');
 const photoImage = document.querySelector('.popup-photo__img');
 const popupPhotoCaption = document.querySelector('.popup-photo__caption');
-const cardForm = document.forms["card-form"];
-const photoTitle = cardForm.querySelector('.popup__main-text');
-const photoLink = cardForm.querySelector('input[name="photolink"]');
-const popupAddCardButton = cardForm.querySelector('.popup__button');
+export const cardForm = document.forms["card-form"];
+export const photoTitle = cardForm.querySelector('.popup__main-text');
+export const photoLink = cardForm.querySelector('input[name="photolink"]');
+export const popupAddCardButton = cardForm.querySelector('.popup__button');
+const editAvatarButton = document.querySelector('.profile__edit-avatar');
+const avatarForm = document.forms["avatar-form"]
+const popupAvatar = document.querySelector('.popup-avatar');
+const avatarLink = avatarForm.querySelector('input[name="photolink"]');
+
+getUserInformation();
 
 editButton.addEventListener('click', function () {
   openPopup(profilePopup);
@@ -32,18 +39,11 @@ export function editProfile(evt) {
   const jobInputValue = jobInput.value;
   profileName.textContent = nameInputValue;
   profileDescription.textContent = jobInputValue;
-  closePopup(profilePopup);
-  evt.target.reset();
+  changeMainInformation(nameInputValue, jobInputValue);
 }
 
 addButton.addEventListener('click', function () {
   openPopup(popupAddCard);
-});
-
-initialCards.forEach(function (element) {
-  const cardElement = createCard(element)
-  cardList.append(cardElement);
-
 });
 
 export function addCard(evt) {
@@ -52,16 +52,32 @@ export function addCard(evt) {
   const photoLinkValue = photoLink.value;
   const item = {
     name: photoTitleValue,
-    link: photoLinkValue
+    link: photoLinkValue,
+    likes: []
   }
+  postCard(photoTitleValue, photoLinkValue);
   const cardElement = createCard(item);
   cardList.prepend(cardElement);
-  closePopup(popupAddCard);
   popupAddCardButton.classList.add('popup__button_inactive');
+  console.log(cardElement);
   evt.target.reset();
-};
+}
+
+editAvatarButton.addEventListener('click', function () {
+  openPopup(popupAvatar);
+});
 
 cardForm.addEventListener('submit', addCard);
+
+function updateAvatar(evt){
+  const profileAvatar = document.querySelector('.profile__avatar');
+  evt.preventDefault();
+  console.log(avatarLink.value);
+  patchUpdateAvatar(avatarLink, profileAvatar, popupAvatar),
+  evt.target.reset();
+}
+
+avatarForm.addEventListener('submit', updateAvatar);
 
 export function fillPhotoPopup(image) {
   const photoLink = image.src;
@@ -82,3 +98,7 @@ enableValidation({
   errorClass: 'popup__error-description',
 });
 
+export function savingChanges(popup) {
+  const popupButton = popup.querySelector('.popup__button');
+  popupButton.textContent = 'Сохранение...';
+}
