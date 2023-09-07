@@ -1,32 +1,28 @@
 import { openPopup } from './modal.js';
-import { deleteLike, addLike, deletePost, getInitialCards } from './api.js';
-import { fillPhotoPopup, photoContainer } from '../index.js';
+import { deleteLike, addLike, deletePost} from './api.js';
+import { fillPhotoPopup, photoContainer} from '../index.js';
 export const cardList = document.querySelector('.photo-grid__elements');
 const cardTemplate = document.querySelector('.cardtemplate').content;
-
-getInitialCards();
 
 export function createCard(item) {
   const cardElement = cardTemplate.querySelector('.photo-grid__item').cloneNode(true);
   const cardImage = cardElement.querySelector('.photo-grid__image');
   const cardName = cardElement.querySelector('.photo-grid__name');
   const likeNumber = cardElement.querySelector('.photo-grid__like-number');
+  const likeIcon = cardElement.querySelector('.photo-grid__like');
   cardImage.src = item.link;
   cardImage.alt = item.name;
   cardName.textContent = item.name;
   likeNumber.textContent = item.likes.length;
-  cardElement.querySelector('.photo-grid__like').addEventListener('click', function (evt) {
+  likeIcon.addEventListener('click', function (evt) {
     if ((evt.target.classList.contains("photo-grid__like_active"))) {
-      deleteLike(item, likeNumber);
-      evt.target.classList.remove("photo-grid__like_active");
+      deleteLike(item, cardElement);
     } else {
-      addLike(item, likeNumber);
-      evt.target.classList.add("photo-grid__like_active");
+      addLike(item, cardElement);
     }
   });
   cardElement.querySelector('.photo-grid__delete').addEventListener('click', function () {
-    deletePost(item);
-    cardElement.remove();
+    deletePost(item, cardElement);
   });
   cardImage.addEventListener('click', function (evt) {
     openPopup(photoContainer);
@@ -36,4 +32,18 @@ export function createCard(item) {
   return cardElement
 }
 
+export function removeCard(cardElement) {
+  cardElement.remove();
+}
 
+export function changeLikesDelete (res, cardElement) {
+  const likeNumber = cardElement.querySelector('.photo-grid__like-number');
+  likeNumber.textContent = res.likes.length;
+  cardElement.querySelector('.photo-grid__like').classList.remove("photo-grid__like_active");
+}
+
+export function changeLikesAdd (res, cardElement) {
+  const likeNumber = cardElement.querySelector('.photo-grid__like-number');
+  likeNumber.textContent = res.likes.length;
+  cardElement.querySelector('.photo-grid__like').classList.add("photo-grid__like_active");
+}
