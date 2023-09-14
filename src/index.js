@@ -2,7 +2,7 @@ import './index.css';
 import { createCard, cardList, } from './components/card.js';
 import { openPopup, closePopup } from './components/modal.js';
 import { enableValidation } from './components/validate.js';
-import {promiseAll, changeMainInformation, postCard, patchUpdateAvatar} from './components/api';
+import {promiseAll, changeMainInformation, postCard, patchUpdateAvatar, getUserInformation} from './components/api';
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
@@ -32,10 +32,7 @@ export const userDataPromise = promiseAll()
   profileDescription.textContent = info.about;
   avatar.src = info.avatar;
   initialCards.forEach(function (element) {
-    const cardElement = createCard(element);
-    if (!(element.owner._id === info._id)) {
-      cardElement.querySelector('.photo-grid__delete').classList.remove('photo-grid__delete');
-    }
+    const cardElement = createCard(element, info);
     cardList.append(cardElement);
   });
 })
@@ -53,11 +50,11 @@ export function editProfile(evt) {
   evt.preventDefault();
   const nameInputValue = nameInput.value;
   const jobInputValue = jobInput.value;
-  profileName.textContent = nameInputValue;
-  profileDescription.textContent = jobInputValue;
   savingChanges(profilePopup);
   changeMainInformation(nameInputValue, jobInputValue)
   .then((res) => {
+    profileName.textContent = nameInputValue;
+    profileDescription.textContent = jobInputValue;
     closePopup(profilePopup);
     console.log(res);
   })
@@ -66,6 +63,7 @@ export function editProfile(evt) {
   })
   .finally(function(){
     resetSavingChanges(profilePopup);
+    resetButton(profilePopup)
   })
 }
 
@@ -78,11 +76,13 @@ export function addCard(evt) {
   const photoTitleValue = photoTitle.value;
   const photoLinkValue = photoLink.value;
   savingChanges(popupAddCard);
-  postCard(photoTitleValue, photoLinkValue)
-  .then((result) => {
-    const cardElement = createCard(result);
+  return Promise.all([
+    getUserInformation(),
+    postCard(photoTitleValue, photoLinkValue),
+  ])
+  .then(([info, result]) => {
+    const cardElement = createCard(result, info);
     cardList.prepend(cardElement);
-    popupAddCardButton.classList.add('popup__button_inactive');
     closePopup(popupAddCard);
     evt.target.reset();
   })
@@ -92,6 +92,7 @@ export function addCard(evt) {
   .finally(function(){
     const popupButton = popupAddCard.querySelector('.popup__button');
     popupButton.textContent = 'Создать';
+    resetButton(popupAddCard)
   })
 }
 
@@ -116,6 +117,7 @@ function updateAvatar(evt){
   })
   .finally(function(){
     resetSavingChanges(popupAvatar);
+    resetButton(popupAvatar)
   })
 }
 
@@ -148,4 +150,10 @@ export function savingChanges(popup) {
 export function resetSavingChanges(popup) {
   const popupButton = popup.querySelector('.popup__button');
   popupButton.textContent = 'Сохранить';
+}
+
+function resetButton(form) {
+  const button = form.querySelector('.popup__button');
+  button.setAttribute("disabled", "disabled");
+  button.classList.add('popup__button_inactive');
 }

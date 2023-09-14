@@ -21,21 +21,21 @@ export function promiseAll() {
 }
 
 export const getUserInformation = () => {
-  return fetch('https://nomoreparties.co/v1/plus-cohort-28/users/me ', {
+  return fetch(`${config.baseUrl}/users/me `, {
     headers: config.headers
   })
   .then(res => getResponseData(res))
 }
 
 export const getInitialCards = () => {
-  return fetch('https://nomoreparties.co/v1/plus-cohort-28/cards', {
+  return fetch(`${config.baseUrl}/cards`, {
     headers: config.headers
   })
   .then(res => getResponseData(res))
 }
 
 export const changeMainInformation = (nameInputValue, jobInputValue) => {
-  return fetch('https://nomoreparties.co/v1/plus-cohort-28/users/me', {
+  return fetch(`${config.baseUrl}/users/me`, {
     method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
@@ -47,7 +47,7 @@ export const changeMainInformation = (nameInputValue, jobInputValue) => {
 }
 
 export const postCard = (photoTitleValue, photoLinkValue) => {
-  return fetch('https://nomoreparties.co/v1/plus-cohort-28/cards', {
+  return fetch(`${config.baseUrl}/cards`, {
     method: 'POST',
     headers: config.headers,
     body: JSON.stringify({
@@ -59,7 +59,7 @@ export const postCard = (photoTitleValue, photoLinkValue) => {
 }
 
 export const deleteLike = (item) => {
-  return fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/likes/${item._id}`, {
+  return fetch(`${config.baseUrl}/cards/likes/${item._id}`, {
     method: 'DELETE',
     headers: config.headers,
   })
@@ -67,7 +67,7 @@ export const deleteLike = (item) => {
 }
 
 export const addLike = (item) => {
-  return fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/likes/${item._id}`, {
+  return fetch(`${config.baseUrl}/cards/likes/${item._id}`, {
     method: 'PUT',
     headers: config.headers,
   })
@@ -75,7 +75,7 @@ export const addLike = (item) => {
 }
 
 export const deletePost = (item) => {
-  return fetch(`https://nomoreparties.co/v1/plus-cohort-28/cards/${item._id}`, {
+  return fetch(`${config.baseUrl}/cards/${item._id}`, {
     method: 'DELETE',
     headers: config.headers,
   })
@@ -84,7 +84,7 @@ export const deletePost = (item) => {
 }
 
 export const patchUpdateAvatar = (avatarLink) => {
-  return fetch('https://nomoreparties.co/v1/plus-cohort-28/users/me/avatar', {
+  return fetch(`${config.baseUrl}/users/me/avatar`, {
     method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
